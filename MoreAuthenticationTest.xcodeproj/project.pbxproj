@@ -9,10 +9,28 @@
 /* Begin PBXBuildFile section */
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		256AC3DA0F4B6AC300CF3369 /* MoreAuthenticationTestAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* MoreAuthenticationTestAppDelegate.m */; };
+		2763ACC71058450000C459C5 /* MoreAuthHelper in Resources */ = {isa = PBXBuildFile; fileRef = 2763ACC4105844F400C459C5 /* MoreAuthHelper */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2763ACC3105844F400C459C5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2763ACBF105844F400C459C5 /* MoreAuthHelper.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DD76FB20486AB0100D96B5E /* MoreAuthHelper */;
+			remoteInfo = MoreAuthHelper;
+		};
+		2763ACCA1058451200C459C5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2763ACBF105844F400C459C5 /* MoreAuthHelper.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DD76FA90486AB0100D96B5E /* MoreAuthHelper */;
+			remoteInfo = MoreAuthHelper;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -22,6 +40,7 @@
 		256AC3D80F4B6AC300CF3369 /* MoreAuthenticationTestAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreAuthenticationTestAppDelegate.h; sourceTree = "<group>"; };
 		256AC3D90F4B6AC300CF3369 /* MoreAuthenticationTestAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreAuthenticationTestAppDelegate.m; sourceTree = "<group>"; };
 		256AC3F00F4B6AF500CF3369 /* MoreAuthenticationTest_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreAuthenticationTest_Prefix.pch; sourceTree = "<group>"; };
+		2763ACBF105844F400C459C5 /* MoreAuthHelper.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MoreAuthHelper.xcodeproj; path = MoreAuthHelper/MoreAuthHelper.xcodeproj; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
@@ -71,7 +90,16 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				2763ACBF105844F400C459C5 /* MoreAuthHelper.xcodeproj */,
 				8D1107320486CEB800E47090 /* MoreAuthenticationTest.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2763ACC0105844F400C459C5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2763ACC4105844F400C459C5 /* MoreAuthHelper */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -130,6 +158,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				2763ACCB1058451200C459C5 /* PBXTargetDependency */,
 			);
 			name = MoreAuthenticationTest;
 			productInstallPath = "$(HOME)/Applications";
@@ -147,6 +176,12 @@
 			hasScannedForEncodings = 1;
 			mainGroup = 29B97314FDCFA39411CA2CEA /* MoreAuthenticationTest */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 2763ACC0105844F400C459C5 /* Products */;
+					ProjectRef = 2763ACBF105844F400C459C5 /* MoreAuthHelper.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				8D1107260486CEB800E47090 /* MoreAuthenticationTest */,
@@ -154,11 +189,22 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		2763ACC4105844F400C459C5 /* MoreAuthHelper */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = MoreAuthHelper;
+			remoteRef = 2763ACC3105844F400C459C5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		8D1107290486CEB800E47090 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2763ACC71058450000C459C5 /* MoreAuthHelper in Resources */,
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 			);
@@ -177,6 +223,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2763ACCB1058451200C459C5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MoreAuthHelper;
+			targetProxy = 2763ACCA1058451200C459C5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
