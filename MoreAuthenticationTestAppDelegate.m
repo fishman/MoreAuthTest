@@ -16,4 +16,8 @@
 	// Insert code here to initialize your application 
 }
 
+- (void)testOpen:(id)sender {
+    NSLog(@"hello world");
+}
+
 @end
