@@ -1,0 +1,15 @@
+=== Information
+
+the code from moreauthenticationtest is based on the moreauthsample from apple.
+the purpose of this is to have a more up to date authentication example.
+
+Question:
+
+How to disabling sigpipe in the helper tool help?
+
+Answer:
+
+I think disabling SIGPIPE is the reason why the moreauthsample example app can
+pass on descriptors.
+
+
