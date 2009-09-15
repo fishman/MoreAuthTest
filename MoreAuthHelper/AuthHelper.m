@@ -12,41 +12,52 @@ int main(int argc, char *argv[])
 {
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     NSLog(@"AuthHelperTool started");
+    OSStatus err = setuid(0);
+    Boolean privileged = (geteuid() == 0);
 
-    // Look at arguments.
-    if (argc == 3)
-    {
+    if (!privileged){
         // Hasn't been called as root yet.
         NSLog(@"AuthHelperTool executing self-repair");
-
+        
         // Paraphrased from http://developer.apple.com/documentation/Security/Conceptual/authorization_concepts/03authtasks/chapter_3_section_4.html
         OSStatus myStatus;
         AuthorizationFlags myFlags = kAuthorizationFlagDefaults;
         AuthorizationRef myAuthorizationRef;
-
+        
         myStatus = AuthorizationCreate(NULL, kAuthorizationEmptyEnvironment, myFlags, &myAuthorizationRef);
         if (myStatus != errAuthorizationSuccess)
             return myStatus;
-
+        
         AuthorizationItem myItems = {kAuthorizationRightExecute, 0, NULL, 0};
         AuthorizationRights myRights = {1, &myItems};
         myFlags = kAuthorizationFlagDefaults |
-            kAuthorizationFlagInteractionAllowed |
-            kAuthorizationFlagPreAuthorize |
-            kAuthorizationFlagExtendRights;
-
+        kAuthorizationFlagInteractionAllowed |
+        kAuthorizationFlagPreAuthorize |
+        kAuthorizationFlagExtendRights;
+        
         myStatus = AuthorizationCopyRights (myAuthorizationRef, &myRights, NULL, myFlags, NULL );
         if (myStatus != errAuthorizationSuccess)
             return myStatus;
-
-        char *myToolPath = argv[1];
-        char *myArguments[] = {argv[1], "--self-repair", argv[2], NULL};
+        
+        char *myToolPath = argv[0];
+        char *myArguments[] = {argv[0], "--self-repair", NULL};
         FILE *myCommunicationsPipe = NULL;
-
+        
         myFlags = kAuthorizationFlagDefaults;
         myStatus = AuthorizationExecuteWithPrivileges(myAuthorizationRef, myToolPath, myFlags, myArguments, &myCommunicationsPipe);
-        NSLog(@"AuthHelperTool called AEWP");
+        NSLog(@"AuthHelperTool called AEWP");  
     }
+    else {
+        NSString *command = [NSString stringWithCString:argv[2]];
+        NSLog(@"AuthHelperTool sent command %@", command);        
+    }
+#if 0
+    // Look at arguments.
+    if (argc == 3)
+    {
+      
+    }
+
     else
     {
         if (argc == 4)
@@ -77,6 +88,7 @@ int main(int argc, char *argv[])
             }
         }
     }
+#endif
     NSLog(@"AuthHelperTool exiting");
 
     [pool release];
