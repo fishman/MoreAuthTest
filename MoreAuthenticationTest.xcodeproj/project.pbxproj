@@ -27,11 +27,11 @@
 			remoteGlobalIDString = 8DD76FB20486AB0100D96B5E;
 			remoteInfo = MoreAuthHelper;
 		};
-		2763ACCA1058451200C459C5 /* PBXContainerItemProxy */ = {
+		27A5A356105EA64B009F77E3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2763ACBF105844F400C459C5 /* MoreAuthHelper.xcodeproj */;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 8DD76FA90486AB0100D96B5E;
+			remoteGlobalIDString = 27A5A347105EA58E009F77E3 /* MoreAuthHelper */;
 			remoteInfo = MoreAuthHelper;
 		};
 /* End PBXContainerItemProxy section */
@@ -205,7 +205,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				2763ACCB1058451200C459C5 /* PBXTargetDependency */,
+				27A5A357105EA64B009F77E3 /* PBXTargetDependency */,
 			);
 			name = MoreAuthenticationTest;
 			productInstallPath = "$(HOME)/Applications";
@@ -231,8 +231,8 @@
 			);
 			projectRoot = "";
 			targets = (
-				8D1107260486CEB800E47090 /* MoreAuthenticationTest */,
 				27A5A347105EA58E009F77E3 /* MoreAuthHelper */,
+				8D1107260486CEB800E47090 /* MoreAuthenticationTest */,
 			);
 		};
 /* End PBXProject section */
@@ -284,10 +284,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2763ACCB1058451200C459C5 /* PBXTargetDependency */ = {
+		27A5A357105EA64B009F77E3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = MoreAuthHelper;
-			targetProxy = 2763ACCA1058451200C459C5 /* PBXContainerItemProxy */;
+			target = 27A5A347105EA58E009F77E3 /* MoreAuthHelper */;
+			targetProxy = 27A5A356105EA64B009F77E3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
