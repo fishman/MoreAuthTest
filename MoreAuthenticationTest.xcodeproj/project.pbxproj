@@ -12,7 +12,7 @@
 		27A5A3E5105F9E25009F77E3 /* AuthHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A5A3E4105F9E25009F77E3 /* AuthHelper.m */; };
 		27A5A3E9105F9E32009F77E3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27A5A3E8105F9E32009F77E3 /* Security.framework */; };
 		27A5A42010604BD3009F77E3 /* MoreAuthHelper in Resources */ = {isa = PBXBuildFile; fileRef = 27A5A348105EA58E009F77E3 /* MoreAuthHelper */; };
-		27E840B1105AB96B00515DFC /* API in Resources */ = {isa = PBXBuildFile; fileRef = 27E8408F105AB96B00515DFC /* API */; };
+		27A5A48E1060CADF009F77E3 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27A5A48D1060CADF009F77E3 /* AppKit.framework */; };
 		27E840B2105AB96B00515DFC /* COPYING in Resources */ = {isa = PBXBuildFile; fileRef = 27E84090105AB96B00515DFC /* COPYING */; };
 		27E840B3105AB96B00515DFC /* fd_recv.c in Sources */ = {isa = PBXBuildFile; fileRef = 27E84091105AB96B00515DFC /* fd_recv.c */; };
 		27E840B4105AB96B00515DFC /* fd_send.c in Sources */ = {isa = PBXBuildFile; fileRef = 27E84092105AB96B00515DFC /* fd_send.c */; };
@@ -42,6 +42,9 @@
 		27A5A348105EA58E009F77E3 /* MoreAuthHelper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MoreAuthHelper; sourceTree = BUILT_PRODUCTS_DIR; };
 		27A5A3E4105F9E25009F77E3 /* AuthHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthHelper.m; sourceTree = "<group>"; };
 		27A5A3E8105F9E32009F77E3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		27A5A46A1060C709009F77E3 /* MoreUnix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreUnix.h; sourceTree = "<group>"; };
+		27A5A46F1060C94F009F77E3 /* MoreUnix.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MoreUnix.c; sourceTree = "<group>"; };
+		27A5A48D1060CADF009F77E3 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		27E8408E105AB96B00515DFC /* ancillary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ancillary.h; sourceTree = "<group>"; };
 		27E8408F105AB96B00515DFC /* API */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = API; sourceTree = "<group>"; };
 		27E84090105AB96B00515DFC /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
@@ -60,6 +63,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27A5A3E9105F9E32009F77E3 /* Security.framework in Frameworks */,
+				27A5A48E1060CADF009F77E3 /* AppKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,9 +119,19 @@
 		27A5A3E3105F9E0E009F77E3 /* MoreAuthHelper */ = {
 			isa = PBXGroup;
 			children = (
+				27A5A43B1060C5B6009F77E3 /* MoreIsBetter */,
 				27A5A3E4105F9E25009F77E3 /* AuthHelper.m */,
 			);
 			path = MoreAuthHelper;
+			sourceTree = "<group>";
+		};
+		27A5A43B1060C5B6009F77E3 /* MoreIsBetter */ = {
+			isa = PBXGroup;
+			children = (
+				27A5A46F1060C94F009F77E3 /* MoreUnix.c */,
+				27A5A46A1060C709009F77E3 /* MoreUnix.h */,
+			);
+			path = MoreIsBetter;
 			sourceTree = "<group>";
 		};
 		27E84062105AB96B00515DFC /* libancillary */ = {
@@ -141,6 +155,7 @@
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				27A5A3E8105F9E32009F77E3 /* Security.framework */,
+				27A5A48D1060CADF009F77E3 /* AppKit.framework */,
 			);
 			name = MoreAuthenticationTest;
 			sourceTree = "<group>";
@@ -237,7 +252,6 @@
 				27A5A42010604BD3009F77E3 /* MoreAuthHelper in Resources */,
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
-				27E840B1105AB96B00515DFC /* API in Resources */,
 				27E840B2105AB96B00515DFC /* COPYING in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,14 +318,7 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				INSTALL_PATH = /usr/local/bin;
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					AppKit,
-				);
 				PREBINDING = NO;
 				PRODUCT_NAME = MoreAuthHelper;
 			};

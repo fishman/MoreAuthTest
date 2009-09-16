@@ -16,6 +16,8 @@ extern int MoreUNIXErrno(int result)
     return err;
 }
 
+#endif
+
 extern int MoreUNIXIgnoreSIGPIPE(void)
     // See comment in header.
 {
@@ -183,5 +185,3 @@ extern int MoreUNIXReadDescriptor(int fd, int *fdRead)
 
     return err;
 }
-
-#endif
