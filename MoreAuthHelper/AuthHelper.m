@@ -8,12 +8,16 @@
 //
 #import <Cocoa/Cocoa.h>
 
+#define N2N_OSX_TAPDEVICE_SIZE 32
+
 int main(int argc, char *argv[])
 {
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    NSLog(@"AuthHelperTool started");
-    OSStatus err = setuid(0);
+    char tap_device[N2N_OSX_TAPDEVICE_SIZE];
+    // OSStatus err = setuid(0);
     Boolean privileged = (geteuid() == 0);
+    int i, fd;
+    NSLog(@"AuthHelperTool started");
 
     if (!privileged){
         // Hasn't been called as root yet.
@@ -48,8 +52,18 @@ int main(int argc, char *argv[])
         NSLog(@"AuthHelperTool called AEWP");
     }
     else {
-        NSString *command = [NSString stringWithCString:argv[2]];
+        NSString *command = [NSString stringWithCString:argv[2] encoding:NSUTF8StringEncoding];
         NSLog(@"AuthHelperTool sent command %@", command);
+        for (i = 0; i < 255; i++) {
+            snprintf(tap_device, sizeof(tap_device), "/dev/tap%d", i);
+
+            fd = open(tap_device, O_RDWR);
+            if(fd > 0) {
+                NSLog(@"Succesfully opened %s", tap_device);
+                break;
+            }
+        }
+
     }
 #if 0
     // Look at arguments.
